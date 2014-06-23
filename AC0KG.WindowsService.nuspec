@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AC0KG-WindowsService</id>
+    <version>0.1.0</version>
+    <authors>David Knaack</authors>
+    <owners>David Knaack</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/davidknaack/ac0kg-windowsservice</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<title>AC0KG Windows Service</title>
+    <description>Quick and easy-to-use Windows Service wrapper.</description>
+    <summary>AC0KG.WindowsService simplifies the creation of Windows Services.
+It is designed to provide a nearly painless setup for service applications
+that do not need support from the Service Control Manager. Apps using it may 
+run on the desktop for debugging, or may be started through the Windows
+service control functions.
+The shell supports self-installation, start and stop actions, and
+allows the application to be run in console mode.</summary>
+    <tags>windows service</tags>
+	<frameworkAssemblies>
+	  <frameworkAssembly assemblyName="System.ServiceProcess" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Configuration.Install" targetFramework="net40"/>
+	</frameworkAssemblies>
+  </metadata>
+    <files>                
+        <file src="bin\Release\AC0KG.WindowsService.dll" target="lib" />
+    </files>
+</package>
