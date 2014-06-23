@@ -19,6 +19,8 @@ Create a new console application and install AC0KG.WindowsService with Nuget:
 
 Above the default "class Program" in Program.cs, add two classes:
 
+    // This attribute tells Visual Studio to not use the designer for this file.
+    [System.ComponentModel.DesignerCategory("")]
     [ServiceName("SampleService")]
     class Service : ServiceShell { }
 	
