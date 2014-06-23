@@ -4,29 +4,35 @@ AC0KG.WindowsService
 Simple .NET Windows Service Shell
 --------------
 AC0KG.WindowsService simplifies the creation of Windows Services.
+It is designed to provide a nearly painless setup for service applications
+that do not need support from the Service Control Manager. Apps using it may 
+run on the desktop for debugging, or may be started through the Windows
+service control functions.
 The shell supports self-installation, start and stop actions, and
 allows the application to be run in console mode.
 
 Quickstart
 --------------
-You will need a class derived from ServiceShell:
+Create a new console application and install AC0KG.WindowsService with Nuget:
+
+    PM> Install-Package AC0KG-WindowsService
+
+Above the default "class Program" in Program.cs, add two classes:
 
     [ServiceName("SampleService")]
     class Service : ServiceShell { }
 	
-And a class derived from InstallerShell:
-
     [RunInstaller(true)]
     [ServiceName("SampleService", DisplayName = "Sample Service", Description = "Sample Service Description")]
     public class Installer : InstallerShell { }
 
 The value of the "ServiceName" attribute should match on both classes, it 
 will be the short name of the service that can be used on the command line
-for starting and stopping the service. The values of theDisplayName and 
+for starting and stopping the service. The values of the DisplayName and 
 Description properties will appear in the Service Control Manager.
 
-The worker is the long-running process that the work. It can be contained
-by a Task, or some other long-running process, for example:
+The work is done by a long-running process. It can be contained by a Task, 
+or some other long-running process, for example:
 
     public static void Run()
     {
@@ -36,7 +42,8 @@ by a Task, or some other long-running process, for example:
 		} while (!tokenSrc.Token.WaitHandle.WaitOne(1000));
     }
 
-The tokenSrc is used in the Stop() action to signal the worker to exit.
+The variable tokenSrc is a CancellationTokenSource used in the Stop() action 
+to signal the worker to exit.
 
 To start the service:
 
