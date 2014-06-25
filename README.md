@@ -11,6 +11,12 @@ service control functions.
 The shell supports self-installation, start and stop actions, and
 allows the application to be run in console mode.
 
+For a practical example of the library in action, see the Firmata Web API 
+project, a self-hosted NancyFX ( http://nancyfx.org ) based web service
+which runs as a Windows Service with AC0KG.WindowsService:
+
+	https://github.com/davidknaack/FirmataWebApi
+
 Quickstart
 --------------
 Create a new console application and install AC0KG.WindowsService with Nuget:
