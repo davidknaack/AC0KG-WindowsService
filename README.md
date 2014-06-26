@@ -93,7 +93,7 @@ Here is the complete service application:
     {
         // This attribute tells Visual Studio to not use the designer for this file.
         [System.ComponentModel.DesignerCategory("")]
-	[ServiceName("SampleService")]
+        [ServiceName("SampleService")]
         class Service : ServiceShell { }
     
         [RunInstaller(true)]
