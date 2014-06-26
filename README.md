@@ -91,7 +91,9 @@ Here is the complete service application:
     
     namespace ConsoleApplication1
     {
-        [ServiceName("SampleService")]
+        // This attribute tells Visual Studio to not use the designer for this file.
+        [System.ComponentModel.DesignerCategory("")]
+	[ServiceName("SampleService")]
         class Service : ServiceShell { }
     
         [RunInstaller(true)]
